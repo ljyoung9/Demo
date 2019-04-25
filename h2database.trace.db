@@ -1,0 +1,3 @@
+2019-04-25 13:50:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BOARD" not found; SQL statement:
+INSERT INTO BOARD (SUBJECT, CONTENT) VALUES ('San Francisco', 'US') [42102-199]

@@ -15,12 +15,20 @@
 			<th>제목</th>
 			<th>내용</th>
 			<th>작성일</th>
+			<th>작성일</th>
+			<th>작성일</th>
+			<th>작성일</th>
 		</tr>
-		<c:forEach var = "board" items="${boardList}">
+		<c:forEach var = "prodcuct" items="${productList}">
 			<tr>
-				<td>${board.id}</td>
-				<td>${board.subject}</td>
-				<td>${board.content}</td>
+				<td>${prodcuct.product_id}</td>
+				<td>${prodcuct.product_name}</td>
+				<td>${prodcuct.product_price}</td>
+				<td>${prodcuct.product_category}</td>
+				<td>${prodcuct.product_img}</td>
+				<td>${prodcuct.category_id}</td>
+				<td>${prodcuct.category_name}</td>
+
 
 			</tr>
 		</c:forEach>

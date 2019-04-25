@@ -2,23 +2,22 @@ package com.example.web.service;
 
 import java.util.List;
 
-import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.web.mapper.BoardMapper;
-import com.example.web.model.BoardModel;
+import com.example.web.mapper.ProductMapper;
+import com.example.web.model.ProductModel;
 
 
 @Service
-public class BoardService {
+public class ProductService {
 	@Autowired
-	BoardMapper dao;
+	ProductMapper mapper;
 	
-	public List<BoardModel> getBoard(){
+	public List<ProductModel> getProduct(){
 		try {
-			return dao.getBoard();
+			return mapper.getProduct();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

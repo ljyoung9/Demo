@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Shop Homepage - Start Bootstrap Template</title>
+  <title>Happy Shop Homepage</title>
 
   <!-- Bootstrap core CSS -->
   <link href="/resources/res/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,7 +25,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <a class="navbar-brand" href="#">Happy Shop</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -57,12 +57,23 @@
 
       <div class="col-lg-3">
 
-        <h1 class="my-4">Shop Name</h1>
-        <div class="list-group">
+        <h1 class="my-4">Happy Shop</h1>
+<!--         <div class="list-group">
           <a href="#" class="list-group-item">Category 1</a>
           <a href="#" class="list-group-item">Category 2</a>
           <a href="#" class="list-group-item">Category 3</a>
-        </div>
+        </div> -->
+        
+        <div class="dropdown">
+		  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		    Dropdown button
+		  </button>
+		  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+		    <a class="dropdown-item" href="#">Action</a>
+		    <a class="dropdown-item" href="#">Another action</a>
+		    <a class="dropdown-item" href="#">Something else here</a>
+		  </div>
+		</div>
 
       </div>
       <!-- /.col-lg-3 -->
@@ -97,8 +108,30 @@
         </div>
 
         <div class="row">
+        
+        
+        <c:forEach var = "prodcuct" items="${productList}">
+			<div class="col-lg-4 col-md-6 mb-4">
+	            <div class="card h-100">
+	              <a href="#"><img class="card-img-top" src="/resources/res/img/${prodcuct.product_img}.JPG" alt=""></a>
+	              <div class="card-body">
+	                <h4 class="card-title">
+	                  <a href="#">${prodcuct.product_name}</a>
+	                </h4>
+	                <h5>$${prodcuct.product_price}</h5>
+	                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+	              </div>
+	              <div class="card-footer">
+	                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+	              </div>
+	            </div>
+            </div>
 
-          <div class="col-lg-4 col-md-6 mb-4">
+		</c:forEach>
+        
+        
+
+          <!-- <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
               <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
               <div class="card-body">
@@ -192,7 +225,7 @@
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
               </div>
             </div>
-          </div>
+          </div> -->
 
         </div>
         <!-- /.row -->
@@ -215,7 +248,7 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="/resources/res/vendor/jquery/jquery.min.js"></script>
+  <script src="/resources/res/vendor/jquery/jquery.min.js"> </script>
   <script src="/resources/res/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
