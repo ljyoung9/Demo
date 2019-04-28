@@ -4,7 +4,57 @@
 
 <mapper namespace="com.example.web.mapper.ProductMapper">
 	<select id="getProduct" resultType="com.example.web.model.ProductModel">
-		select * from product
+		<![CDATA[
+			SELECT P.PRODUCT_ID
+			      ,P.PRODUCT_NAME
+			      ,P.PRODUCT_PRICE
+			      ,P.PRODUCT_CATEGORY_ID
+			      ,P.PRODUCT_IMG
+			  FROM PRODUCT P
+		  ORDER BY P.PRODUCT_PRICE ASC
+		]]>
+	</select>
+
+	<select id="getCategory"  resultType="com.example.web.model.ProductModel">
+		<![CDATA[
+			SELECT C.CATEGORY_ID
+			      ,C.CATEGORY_NAME
+			  FROM CATEGORY C 
+		  ORDER BY C.CATEGORY_ID
+		]]>
+
+	</select>
+
+
+	<select id="getProductByCaterogy" parameterType = "com.example.web.model.ProductModel" resultType="com.example.web.model.ProductModel">
+		<![CDATA[		
+	    	SELECT P.*
+	    	  FROM PRODUCT P ,CATEGORY C
+	    	 WHERE C.CATEGORY_ID =  #{category_id}	    	   
+               AND P.PRODUCT_CATEGORY_ID regexp #{category_id}
+          ORDER BY P.PRODUCT_PRICE asc
+		 ]]>
+	</select>
+
+	<select id="getProductByPriceUnder" parameterType = "com.example.web.model.ProductModel" resultType="com.example.web.model.ProductModel">
+		<![CDATA[
+			SELECT * 
+             FROM PRODUCT P
+            WHERE P.PRODUCT_PRICE < #{product_price}
+         ORDER BY P.PRODUCT_PRICE asc
+		]]>
+	</select>
+	
+	
+	<select id="getSortByPrice" parameterType = "String"  resultType="com.example.web.model.ProductModel">
+			SELECT * 
+             FROM PRODUCT P
+            <if test='_parameter.equals("PriceDesc") '>
+         ORDER BY P.PRODUCT_PRICE desc
+			</if>
+			<if test="_parameter.equals('PriceAsc') ">
+         ORDER BY P.PRODUCT_PRICE asc
+			</if>
 	</select>
 
 </mapper>

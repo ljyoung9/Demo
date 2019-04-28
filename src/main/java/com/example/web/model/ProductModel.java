@@ -1,17 +1,20 @@
 package com.example.web.model;
 
 public class ProductModel {
-	private int product_id;
+	private String product_id;
 	private String product_name;
 	private int product_price;
 	private String product_category;
 	private String product_img;
-	private int category_id;
+	private String category_id;
 	private String category_name;
-	public int getProduct_id() {
+	private String sortType;
+	
+	
+	public String getProduct_id() {
 		return product_id;
 	}
-	public void setProduct_id(int product_id) {
+	public void setProduct_id(String product_id) {
 		this.product_id = product_id;
 	}
 	public String getProduct_name() {
@@ -38,10 +41,10 @@ public class ProductModel {
 	public void setProduct_img(String product_img) {
 		this.product_img = product_img;
 	}
-	public int getCategory_id() {
+	public String getCategory_id() {
 		return category_id;
 	}
-	public void setCategory_id(int category_dd) {
+	public void setCategory_id(String category_dd) {
 		this.category_id = category_dd;
 	}
 	public String getCategory_name() {
@@ -49,6 +52,12 @@ public class ProductModel {
 	}
 	public void setCategory_name(String category_name) {
 		this.category_name = category_name;
+	}
+	public String getSortType() {
+		return sortType;
+	}
+	public void setSortType(String sortType) {
+		this.sortType = sortType;
 	}
 	
 	

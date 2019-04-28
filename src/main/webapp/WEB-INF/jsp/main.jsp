@@ -17,6 +17,10 @@
 
   <!-- Custom styles for this template -->
   <link href="/resources/res/css/shop-homepage.css" rel="stylesheet">
+  
+  <script>
+
+  </script>
 
 </head>
 
@@ -58,29 +62,31 @@
       <div class="col-lg-3">
 
         <h1 class="my-4">Happy Shop</h1>
-<!--         <div class="list-group">
-          <a href="#" class="list-group-item">Category 1</a>
-          <a href="#" class="list-group-item">Category 2</a>
-          <a href="#" class="list-group-item">Category 3</a>
-        </div> -->
+
         
         <div class="dropdown">
 		  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		    Dropdown button
+		    Category
 		  </button>
 		  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-		    <a class="dropdown-item" href="#">Action</a>
-		    <a class="dropdown-item" href="#">Another action</a>
-		    <a class="dropdown-item" href="#">Something else here</a>
+		    <c:forEach var = "category" items="${categoryList}">
+				<a class="dropdown-item" href="/${category.category_id}">${category.category_name}</a>
+			</c:forEach>
 		  </div>
 		</div>
+		<p></p>
+		<div class="list-group">
+          <a href="/priceUnder/20" class="list-group-item">$20 and Under</a>
+          <a href="/priceUnder/40" class="list-group-item">$40 and Under</a>
+          <a href="/priceUnder/60" class="list-group-item">$60 and Under</a>
+        </div>
 
       </div>
       <!-- /.col-lg-3 -->
 
       <div class="col-lg-9">
 
-        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+        <!-- <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -105,128 +111,40 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
-        </div>
+        </div> -->
+        
+
+	        <div class=dropdown style="text-align: right;" >			  
+			  <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+			   Sort by <span class="caret"></span>
+			  </button>
+			  
+			  <ul class="dropdown-menu" role="menu">
+			    <li><a class="dropdown-item" href="/sortBy/PriceDesc">Price High to Low</a></li>
+    			<li><a class="dropdown-item" href="/sortBy/PriceAsc">Price Low to High</a></li>
+			  </ul>
+			</div>
+
 
         <div class="row">
-        
-        
-        <c:forEach var = "prodcuct" items="${productList}">
-			<div class="col-lg-4 col-md-6 mb-4">
-	            <div class="card h-100">
-	              <a href="#"><img class="card-img-top" src="/resources/res/img/${prodcuct.product_img}.JPG" alt=""></a>
-	              <div class="card-body">
-	                <h4 class="card-title">
-	                  <a href="#">${prodcuct.product_name}</a>
-	                </h4>
-	                <h5>$${prodcuct.product_price}</h5>
-	                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-	              </div>
-	              <div class="card-footer">
-	                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-	              </div>
+	        <c:forEach var = "prodcuct" items="${productList}">
+				<div class="col-lg-4 col-md-6 mb-4">
+		            <div class="card h-100">
+		              <a href="#"><img class="card-img-top" src="/resources/res/img/${prodcuct.product_img}.JPG" alt=""></a>
+		              <div class="card-body">
+		                <h4 class="card-title">
+		                  <a href="#">${prodcuct.product_name}</a>
+		                </h4>
+		                <h5>$${prodcuct.product_price}</h5>
+		                <!-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p> -->
+		              </div>
+		              <div class="card-footer">
+		               <!--  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> -->
+		              </div>
+		            </div>
 	            </div>
-            </div>
-
-		</c:forEach>
-        
-        
-
-          <!-- <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item One</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Two</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Three</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Four</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Five</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Six</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div> -->
-
+	
+			</c:forEach>
         </div>
         <!-- /.row -->
 
@@ -238,6 +156,8 @@
 
   </div>
   <!-- /.container -->
+  
+  
 
   <!-- Footer -->
   <footer class="py-5 bg-dark">
